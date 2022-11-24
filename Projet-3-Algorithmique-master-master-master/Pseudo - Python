@@ -1,0 +1,141 @@
+#DEBUT
+from random import *
+
+#Admettre la fonction ordiPFC qui choisit aléatoirement un chiffre entre 1 et 3
+def ordiPFC():
+    #valeurPC doit choisir en 1 et 3.
+    valeurPC = randint(1, 3)
+    #Si valeurPC est égal à 1
+    if valeurPC == 1:
+        #Alors ordiPFC est égal à Pierre
+        ordiPFC = "Pierre"
+    #Sinon si valeurPC est égal à 2
+    elif valeurPC == 2:
+        #Alors ordiPFC est égal à Feuille
+        ordiPFC = "Feuille"
+    #Sinon si valeurPC est égal à 3
+    elif valeurPC == 3:
+        #Alors ordiPFC est égal à Ciseaux
+        ordiPFC = "Ciseaux"
+    # retourner la fonction ordiPFC
+    return ordiPFC
+
+#initialiser les victoires
+win = 0
+
+#initialiser les défaites
+loose = 0
+
+#Initialiser compteurPartie qui est égal à 0
+compteurPartie = 0
+
+#Définir le joueur
+playerPFC = ""
+
+
+#Afficher les règles du jeux et les différentes action possible afin d'avoir accès aux aides et performance du joueur
+print("Bonjour et bienvenue, dans mon pierre feuille ciseaux, le jeu est simple, vous allez pouvoir choisir entre 3 possibilités, pierre, feuille et ciseaux, c'est un jeu de hasard, vous allez devoir gagner contre l'ordinateur. Bonne chance !")
+# Demander au joueur si il est prêt par oui ou non (o / n)
+ready = input("Êtes vous prêt ? (oui / non)  ")
+#Si le joueur est prêt
+if ready == "oui":
+    #Afficher qu'il démarre une nouvelle partie, et qu'il doit choisir entre Pierre, Feuille et Ciseaux et dire que pour arrêter la partie il faut écrire "stop"
+    print("Vous commencez une nouvelle partie ! Choisissez Pierre, Feuille ou Ciseaux (Pour arrêter la partie, écrivez stop)")
+    #Tant que le playerPFC n'écrit pas "stop"
+    while playerPFC != "stop":
+        #Rentrer la valeur du joueur
+        playerPFC = input("Player : ")
+        #Définir choixOrdi est égal à la focntion ordiPFC()
+        choixOrdi = ordiPFC()
+        #Afficher le choix de l'ordinateur
+        print("Ordi :",choixOrdi)
+        #Afficher le match entre le joueur et l'ordi
+        print(playerPFC, "VS", choixOrdi)
+        #Si playerPFC choisit "Pierre" et que la réponse de ordiPFC est "Ciseaux"
+        if playerPFC == "Pierre" and choixOrdi == "Ciseaux":
+            #Alors afficher "Joueur a gagné"
+            print("Joueur a gagné !")
+            # Ajouter 1 à Win
+            win = win + 1
+            #Ajouter 1 dans compteurPartie
+            compteurPartie = compteurPartie + 1
+        #Sinon si playerPFC choisit "Pierre" et que la réponse de ordiPFC est "Feuille"
+        elif playerPFC == "Pierre" and choixOrdi == "Feuille":
+            #Alors afficher "Ordi a gagné"
+            print("Ordi a gagné !")
+            #Ajouter 1 à Loose
+            loose = loose + 1
+            #Ajouter 1 dans compteurPartie
+            compteurPartie = compteurPartie + 1
+        #Sinon si playerPFC choisit "Pierre" et que la réponse de ordiPFC est "Pierre"
+        elif playerPFC == "Pierre" and choixOrdi == "Pierre":
+            #Alors afficher "Égalité, dommage..."
+            print("Égalité, dommage...")
+            #Ajouter 1 dans compteurPartie
+            compteurPartie = compteurPartie + 1
+        #Sinon si playerPFC choisit "Feuille" et que la réponse de ordiPFC est "Pierre"
+        elif playerPFC == "Feuille" and choixOrdi == "Pierre":
+            #Alors afficher "Joueur a gagné"
+            print("Joueur a gagné !")
+            #Ajouter 1 à Win
+            win = win + 1
+            #Ajouter 1 dans compteurPartie
+            compteurPartie = compteurPartie + 1
+        #Sinon si playerPFC choisit "Feuille" et que la réponse de ordiPFC est "Ciseaux"
+        elif playerPFC == "Feuille" and choixOrdi == "Ciseaux":
+            #Alors afficher "Ordi a gagné"
+            print("Ordi a gagné !")
+            #Ajouter 1 à Loose
+            loose = loose + 1
+            #Ajouter 1 dans compteurPartie
+            compteurPartie = compteurPartie + 1
+        #Sinon si playerPFC choisit "Feuille" et que la réponse de ordiPFC est "Feuille"
+        elif playerPFC == "Feuille" and choixOrdi == "Feuille":
+            #Alors afficher "Égalité dommage..."
+            print("Égalité, dommage...")
+            #Ajouter 1 dans compteurPartie
+            compteurPartie = compteurPartie + 1
+        #Sinon si playerPFC choisit "Ciseaux" et que la réponse de ordiPFC est "Feuille"
+        elif playerPFC == "Ciseaux" and choixOrdi == "Feuille":
+            #Alors afficher "Joueur a gagné"
+            print("Joueur a gagné !")
+            #Ajouter 1 à Win
+            win = win + 1
+            #Ajouter 1 dans compteurPartie
+            compteurPartie = compteurPartie + 1
+        #Sinon si playerPFC choisit "Ciseaux" et que la réponse de ordiPFC est "Pierre"
+        elif playerPFC == "Ciseaux" and choixOrdi == "Pierre":
+            #Alors afficher "Ordi a gagné"
+            print("Ordi a gagné !")
+            #Ajouter 1 à Loose
+            loose = loose + 1
+            #Ajouter 1 dans compteurPartie
+            compteurPartie = compteurPartie + 1
+        #Sinon si playerPFC choisit "Ciseaux" et que la réponse de ordiPFC est "Ciseaux"
+        elif playerPFC == "Ciseaux" and choixOrdi == "Ciseaux":
+            #Alors afficher "Égalité dommage..."
+            print("Égalité, dommage...")
+            #Ajouter 1 dans compteurPartie
+            compteurPartie = compteurPartie + 1
+        #Sinon si joueur écrit stop
+        elif playerPFC == "stop" :
+            #Alors afficher un espace
+            print("")
+            #Afficher un message d'adieu avec le compteur de partie ainsi que le ratio WL
+            print("Tu viens de quitter le jeu, tu a fait " + str(compteurPartie) + " parties, dont " + str(win) + " victoire(s) et " + str(loose) + " défaites, à bientôt !")
+            #Sortir la boucle
+            break
+        #Sinon
+        else:
+            #Afficher message d'erreur "Choisir un nombre valide comprit entre 1 et 3"
+            print("Erreur : Choisir une valeur valide")  
+#Sinon si la fonction ready est égale à non
+elif ready == "non":
+    #Afficher un message d'adieu
+    print("Aurevoir !")
+#Sinon  
+else:
+    #Afficher un message d'erreur disant de saisir une bonne valeur.
+    print("Veuillez effectuer une bonne saisie.")
+#Arrêter le programme
+#FIN
